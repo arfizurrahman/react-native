@@ -6,14 +6,14 @@ const COLOR_INCREMENT = 15;
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		case 'red':
+		case 'change_red':
 			return state.red + action.payload > 255 || state.red + action.payload < 0
 				? state
 				: {
 						...state,
 						red: state.red + action.payload,
 				  };
-		case 'green':
+		case 'change_green':
 			return state.green + action.payload > 255 ||
 				state.green + action.payload < 0
 				? state
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
 						green: state.green + action.payload,
 				  };
 
-		case 'blue':
+		case 'change_blue':
 			return state.blue + action.payload > 255 ||
 				state.blue + action.payload < 0
 				? state
@@ -47,27 +47,29 @@ const SquareScreen = () => {
 			<View style={{ width: 350, alignItems: 'center' }}>
 				<ColorCounter
 					color='Red'
-					onIncrease={() => dispatch({ type: 'red', payload: COLOR_INCREMENT })}
+					onIncrease={() =>
+						dispatch({ type: 'change_red', payload: COLOR_INCREMENT })
+					}
 					onDecrease={() =>
-						dispatch({ type: 'red', payload: -1 * COLOR_INCREMENT })
+						dispatch({ type: 'change_red', payload: -1 * COLOR_INCREMENT })
 					}
 				/>
 				<ColorCounter
 					color='Green'
 					onIncrease={() =>
-						dispatch({ type: 'green', payload: COLOR_INCREMENT })
+						dispatch({ type: 'change_green', payload: COLOR_INCREMENT })
 					}
 					onDecrease={() =>
-						dispatch({ type: 'green', payload: -1 * COLOR_INCREMENT })
+						dispatch({ type: 'change_green', payload: -1 * COLOR_INCREMENT })
 					}
 				/>
 				<ColorCounter
 					color='Blue'
 					onIncrease={() =>
-						dispatch({ type: 'blue', payload: COLOR_INCREMENT })
+						dispatch({ type: 'change_blue', payload: COLOR_INCREMENT })
 					}
 					onDecrease={() =>
-						dispatch({ type: 'blue', payload: -1 * COLOR_INCREMENT })
+						dispatch({ type: 'change_blue', payload: -1 * COLOR_INCREMENT })
 					}
 				/>
 				<View
