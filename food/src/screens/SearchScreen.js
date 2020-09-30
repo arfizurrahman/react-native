@@ -9,7 +9,7 @@ const SearchScreen = () => {
 	const [searchApi, restaurants, errorMessage] = useRestaurants();
 
 	const filterRestaurantsByPrice = (price) => {
-		return restaurants.filter((r) => r.price === price);
+		return restaurants.filter((restaurant) => restaurant.price === price);
 	};
 
 	return (
