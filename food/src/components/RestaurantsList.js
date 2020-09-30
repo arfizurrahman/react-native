@@ -6,6 +6,7 @@ import {
 	FlatList,
 	TouchableOpacity,
 } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import RestaurantDetail from './RestaurantDetail';
 
 const RestaurantsList = ({ title, restaurants, navigation }) => {
@@ -40,4 +41,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default RestaurantsList;
+export default withNavigation(RestaurantsList);
