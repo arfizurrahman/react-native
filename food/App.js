@@ -16,5 +16,3 @@ const navigator = createStackNavigator(
 );
 
 export default createAppContainer(navigator);
-
-// Bearer l2cmhf2ezRl6ZkcHWNYKoDpiaro1zlqUjwkA7nVxnWzryiTwFDk35PJiucoLhjjFY9ECD8GTBGaHBg5yv5YDLiszKQx8EMvm30ply0UWoHQOnYFjLozpYnZOx-UsXXYx
