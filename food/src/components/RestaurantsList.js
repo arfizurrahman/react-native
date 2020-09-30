@@ -4,10 +4,11 @@ import RestaurantDetail from './RestaurantDetail';
 
 const RestaurantsList = ({ title, restaurants }) => {
 	return (
-		<View>
+		<View style={styles.container}>
 			<Text style={styles.title}>{title}</Text>
 			<FlatList
 				horizontal
+				showsHorizontalScrollIndicator={false}
 				data={restaurants}
 				keyExtractor={(restaurant) => restaurant.id}
 				renderItem={({ item }) => {
@@ -19,9 +20,12 @@ const RestaurantsList = ({ title, restaurants }) => {
 };
 
 const styles = StyleSheet.create({
+	container: { marginBottom: 15 },
 	title: {
 		fontSize: 18,
 		fontWeight: 'bold',
+		marginLeft: 15,
+		marginBottom: 5,
 	},
 });
 
