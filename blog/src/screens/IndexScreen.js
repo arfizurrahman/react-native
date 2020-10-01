@@ -15,6 +15,14 @@ const IndexScreen = ({ navigation }) => {
 
 	useEffect(() => {
 		getBlogPosts();
+
+		const listener = navigation.addListener('didFocus', () => {
+			getBlogPosts();
+		});
+
+		return () => {
+			listener.remove();
+		};
 	}, []);
 
 	return (
@@ -65,7 +73,7 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 	},
 	headerIcon: {
-		marginRight: 10,
+		marginRight: 15,
 	},
 });
 

@@ -18,6 +18,7 @@ const ShowScreen = ({ navigation }) => {
 
 ShowScreen.navigationOptions = ({ navigation }) => {
 	return {
+		title: 'Post Detail',
 		headerRight: () => (
 			<TouchableOpacity
 				onPress={() =>
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 	},
 	headerIcon: {
-		marginRight: 10,
+		marginRight: 15,
 	},
 });
 
