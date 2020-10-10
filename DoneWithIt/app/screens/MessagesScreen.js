@@ -11,8 +11,10 @@ import Screen from '../components/Screen';
 const initialMessages = [
 	{
 		id: 1,
-		title: 'T1',
-		description: 'D1',
+		title:
+			'Also note that this happened with expo-cli v3.0.9, so I upgraded to v3.0.10, but still got the error.',
+		description:
+			'Also note that this happened with expo-cli v3.0.9, so I upgraded to v3.0.10, but still got the error.',
 		image: require('../assets/mosh.jpg'),
 	},
 	{
