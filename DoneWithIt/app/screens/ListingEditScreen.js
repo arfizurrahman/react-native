@@ -40,9 +40,15 @@ function ListingEditScreen() {
 					keyboardType='numeric'
 					maxLength={8}
 					name='price'
+					width={120}
 					placeholder='Price'
 				/>
-				<Picker items={categories} name='category' placeholder='Category' />
+				<Picker
+					items={categories}
+					name='category'
+					placeholder='Category'
+					width='50%'
+				/>
 				<FormField
 					maxLength={255}
 					multiline
