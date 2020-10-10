@@ -18,6 +18,7 @@ const AppPicker = ({
 	icon,
 	items,
 	onSelectItem,
+	PickerItemComponent = PickerItem,
 	placeholder,
 	selectedItem,
 	width = '100%',
@@ -56,7 +57,7 @@ const AppPicker = ({
 						data={items}
 						keyExtractor={(item) => item.value.toString()}
 						renderItem={({ item }) => (
-							<PickerItem
+							<PickerItemComponent
 								label={item.label}
 								onPress={() => {
 									setModalVisible(false);
