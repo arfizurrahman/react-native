@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
-import { StyleSheet, Switch, TextInput } from 'react-native';
-import AppPicker from './app/components/AppPicker';
+import { StyleSheet } from 'react-native';
 
-import AppTextInput from './app/components/AppTextInput';
 import Screen from './app/components/Screen';
-import ListingEditScreen from './app/screens/ListingEditScreen';
-import LoginScreen from './app/screens/LoginScreen';
-import MessagesScreen from './app/screens/MessagesScreen';
+import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 export default function App() {
-	return <ListingEditScreen />;
+	const [imageUris, setImageUris] = useState([]);
+
+	const handleAdd = (uri) => {
+		setImageUris([...imageUris, uri]);
+	};
+	const handleRemove = (uri) => {
+		setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+	};
+
+	return (
+		<Screen>
+			<ImageInputList
+				imageUris={imageUris}
+				onAddImage={handleAdd}
+				onRemoveImage={handleRemove}
+			/>
+		</Screen>
+	);
 }
 
 const styles = StyleSheet.create({});
