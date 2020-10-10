@@ -3,9 +3,13 @@ import { Button, StyleSheet, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Screen from './app/components/Screen';
 import AppText from './app/components/AppText';
+import AuthNavigator from './app/navigation/AuthNavigator';
+import navigationTheme from './app/navigation/navigationTheme';
+import AppNavigator from './app/navigation/AppNavigator';
 
 const Link = () => {
 	const navigation = useNavigation();
@@ -30,7 +34,7 @@ const TweetDetails = ({ route }) => (
 );
 
 const Stack = createStackNavigator();
-const StackNavigator = () => (
+const FeedNavigator = () => (
 	<Stack.Navigator
 		initialRouteName='Tweets'
 		screenOptions={{
@@ -62,15 +66,15 @@ const Account = () => (
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
 	<Tab.Navigator>
-		<Tab.Screen name='Feed' component={Tweets} />
+		<Tab.Screen name='Feed' component={FeedNavigator} />
 		<Tab.Screen name='Account' component={Account} />
 	</Tab.Navigator>
 );
 
 export default function App() {
 	return (
-		<NavigationContainer>
-			<TabNavigator />
+		<NavigationContainer theme={navigationTheme}>
+			<AppNavigator />
 		</NavigationContainer>
 	);
 }

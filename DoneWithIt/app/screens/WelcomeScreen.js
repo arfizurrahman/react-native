@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, ImageBackground, View, Image, Text } from 'react-native';
 import AppButton from '../components/AppButton';
+import routes from '../navigation/routes';
 
-import colors from '../config/colors';
-
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
 	return (
 		<ImageBackground
 			blurRadius={5}
@@ -15,11 +14,14 @@ const WelcomeScreen = () => {
 				<Text style={styles.tagline}>Sell What You Don't Need</Text>
 			</View>
 			<View style={styles.buttonsContainer}>
-				<AppButton title='Login' onPress={() => console.log('asd')} />
+				<AppButton
+					title='Login'
+					onPress={() => navigation.navigate(routes.LOGIN)}
+				/>
 				<AppButton
 					title='Register'
 					color='secondary'
-					onPress={() => console.log('asd')}
+					onPress={() => navigation.navigate(routes.REGISTER)}
 				/>
 				<View style={styles.registerButton}></View>
 			</View>
