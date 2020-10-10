@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 import Screen from './app/components/Screen';
+import AppText from './app/components/AppText';
 
 const Link = () => {
 	const navigation = useNavigation();
@@ -51,10 +53,24 @@ const StackNavigator = () => (
 	</Stack.Navigator>
 );
 
+const Account = () => (
+	<Screen>
+		<AppText>Account</AppText>
+	</Screen>
+);
+
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => (
+	<Tab.Navigator>
+		<Tab.Screen name='Feed' component={Tweets} />
+		<Tab.Screen name='Account' component={Account} />
+	</Tab.Navigator>
+);
+
 export default function App() {
 	return (
 		<NavigationContainer>
-			<StackNavigator />
+			<TabNavigator />
 		</NavigationContainer>
 	);
 }
