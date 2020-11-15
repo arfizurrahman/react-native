@@ -13,6 +13,7 @@ import AppNavigator from './app/navigation/AppNavigator';
 
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-community/async-storage';
+import OfflineNotice from './app/components/OfflineNotice';
 
 const Link = () => {
 	const navigation = useNavigation();
@@ -76,9 +77,12 @@ const TabNavigator = () => (
 
 export default function App() {
 	return (
-		<NavigationContainer theme={navigationTheme}>
-			<AppNavigator />
-		</NavigationContainer>
+		<>
+			<OfflineNotice />
+			<NavigationContainer theme={navigationTheme}>
+				<AppNavigator />
+			</NavigationContainer>
+		</>
 	);
 }
 
