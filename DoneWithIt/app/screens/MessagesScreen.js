@@ -15,13 +15,13 @@ const initialMessages = [
 			'Also note that this happened with expo-cli v3.0.9, so I upgraded to v3.0.10, but still got the error.',
 		description:
 			'Also note that this happened with expo-cli v3.0.9, so I upgraded to v3.0.10, but still got the error.',
-		image: require('../assets/mosh.jpg'),
+		image: require('../assets/arfiz.jpeg'),
 	},
 	{
 		id: 2,
 		title: 'T2',
 		description: 'D2',
-		image: require('../assets/mosh.jpg'),
+		image: require('../assets/arfiz.jpeg'),
 	},
 ];
 
@@ -56,7 +56,7 @@ const MessagesScreen = () => {
 							id: 2,
 							title: 'T2',
 							description: 'D2',
-							image: require('../assets/mosh.jpg'),
+							image: require('../assets/arfiz.jpeg'),
 						},
 					]);
 				}}

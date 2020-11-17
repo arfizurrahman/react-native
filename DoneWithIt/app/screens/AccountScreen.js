@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Text } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 
 import colors from '../config/colors';
 import ListItem from '../components/lists/ListItem';
@@ -7,6 +7,7 @@ import Screen from '../components/Screen';
 import Icon from '../components/Icon';
 import routes from '../navigation/routes';
 import { ListItemSeparator } from '../components/lists';
+import useAuth from '../auth/useAuth';
 
 const menuItems = [
 	{
@@ -27,13 +28,15 @@ const menuItems = [
 ];
 
 const AccountScreen = ({ navigation }) => {
+	const { user, logOut } = useAuth();
+
 	return (
 		<Screen style={styles.screen}>
 			<View style={styles.container}>
 				<ListItem
-					title='Md. Arfizur Rahman'
-					subTitle='arfizrahman0@gmail.com'
-					image={require('../assets/mosh.jpg')}
+					title={user.name}
+					subTitle={user.email}
+					image={require('../assets/arfiz.jpeg')}
 				/>
 			</View>
 			<View style={styles.container}>
@@ -58,6 +61,7 @@ const AccountScreen = ({ navigation }) => {
 			<ListItem
 				title='Log Out'
 				IconComponent={<Icon name='logout' backgroundColor='#ffe66d' />}
+				onPress={() => logOut()}
 			/>
 		</Screen>
 	);
