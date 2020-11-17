@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import * as Yup from 'yup';
 
 import Screen from '../components/Screen';
@@ -48,7 +48,10 @@ function RegisterScreen() {
 	return (
 		<>
 			<ActivityIndicator visible={registerApi.loading || loginApi.loading} />
-			<Screen style={styles.container}>
+			<KeyboardAvoidingView
+				style={styles.container}
+				behavior='position'
+				keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -10}>
 				<AppForm
 					initialValues={{ name: '', email: '', password: '' }}
 					onSubmit={handleSubmit}
@@ -80,7 +83,7 @@ function RegisterScreen() {
 					/>
 					<SubmitButton title='Register' />
 				</AppForm>
-			</Screen>
+			</KeyboardAvoidingView>
 		</>
 	);
 }

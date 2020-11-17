@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Image } from 'react-native';
+import {
+	StyleSheet,
+	Image,
+	KeyboardAvoidingView,
+	Platform,
+} from 'react-native';
 import * as Yup from 'yup';
 
 import Screen from '../components/Screen';
@@ -30,7 +35,10 @@ const LoginScreen = () => {
 	};
 
 	return (
-		<Screen style={styles.container}>
+		<KeyboardAvoidingView
+			style={styles.container}
+			behavior='position'
+			keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 100}>
 			<Image style={styles.logo} source={require('../assets/logo-red.png')} />
 
 			<AppForm
@@ -61,7 +69,7 @@ const LoginScreen = () => {
 				/>
 				<SubmitButton title='Login' />
 			</AppForm>
-		</Screen>
+		</KeyboardAvoidingView>
 	);
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { Image } from 'react-native-expo-image-cache';
 
 import AppText from '../components/AppText';
@@ -9,7 +9,9 @@ import colors from '../config/colors';
 const ListingDetailsScreen = ({ route }) => {
 	const listing = route.params;
 	return (
-		<View>
+		<KeyboardAvoidingView
+			behavior='position'
+			keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 100}>
 			<Image
 				style={styles.image}
 				uri={listing.images[0].url}
@@ -27,7 +29,7 @@ const ListingDetailsScreen = ({ route }) => {
 					/>
 				</View>
 			</View>
-		</View>
+		</KeyboardAvoidingView>
 	);
 };
 
