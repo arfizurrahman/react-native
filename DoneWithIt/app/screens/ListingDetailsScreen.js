@@ -3,6 +3,7 @@ import { View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { Image } from 'react-native-expo-image-cache';
 
 import AppText from '../components/AppText';
+import ContactSellerForm from '../components/ContactSellerForm';
 import { ListItem } from '../components/lists';
 import colors from '../config/colors';
 
@@ -28,6 +29,7 @@ const ListingDetailsScreen = ({ route }) => {
 						subTitle='5 Listings'
 					/>
 				</View>
+				<ContactSellerForm listing={listing} />
 			</View>
 		</KeyboardAvoidingView>
 	);
